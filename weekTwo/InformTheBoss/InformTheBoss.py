@@ -22,16 +22,20 @@ while True:
         flower_name = input("Name: ")
         flower_price = float(input("Price: "))
         total_sale += flower_price
-        # Adds the givven input to the dictionary
+        # Adds the given input to the dictionary
         sold_flowers[flower_name] = flower_price
         print("")
     elif command == "I":
+        # Displays that there has not been any sales yet.
         if len(sold_flowers) == 0:
             print("There has not been any sales yet.")
             print("")
         else:
             total_flowers_sold = len(sold_flowers)
 
+            # Loops through the dictionary and assigns the key to the flower_name and the value to the flower_price.
+            # If the flower price is higher than the highest sale, the highest sale becomes equals to flower price.
+            # If the flower price is lower than the lowest sale, the lowest sale becomes equals to flower price.
             for flower_name, flower_price in sold_flowers.items():
                 if flower_price > highest_sale:
                     highest_sale_name = flower_name
@@ -41,8 +45,10 @@ while True:
                     lowest_sale_name = flower_name
                     lowest_sale = flower_price
 
+            # Rounds the average sale to two decimals
             average_sale = round((total_sale / total_flowers_sold), 2)
 
+            # Prints out the output.
             print(f"There has been {total_flowers_sold} flowers sold.")
             print(
                 f"The most expensive sale is {highest_sale_name} valued at {highest_sale} Euro."
@@ -55,5 +61,6 @@ while True:
     elif command == "Exit":
         break
     else:
+        # Prints an output incase the user enters an invalid command.
         print(f"Sorry, this command ({command}) is invalid!")
         print("")

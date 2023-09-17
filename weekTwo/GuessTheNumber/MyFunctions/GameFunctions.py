@@ -9,6 +9,12 @@ def feedback(random_number, user_guess):
     else:
         print("Too low!")
 
+def is_invalid_number(user_guess):
+    if user_guess < 1 or user_guess > 100:
+        return True
+    else:
+        return False
+
 def is_highscore(highscore, score):
     if score < highscore:
         return True

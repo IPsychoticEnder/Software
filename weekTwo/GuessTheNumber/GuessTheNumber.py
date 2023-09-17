@@ -15,7 +15,9 @@ while GameFunctions.play_again(answer):
         print("Guess a number between 1 and 100")
         user_guess = int(input(">"))
 
-        if GameFunctions.is_number(random_number, user_guess):
+        if GameFunctions.is_invalid_number(user_guess):
+            print(f"This number is invalid! ({user_guess})")
+        elif GameFunctions.is_number(random_number, user_guess):
             print("You win!")
             print("")
             break

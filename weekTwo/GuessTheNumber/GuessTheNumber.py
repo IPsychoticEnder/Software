@@ -8,7 +8,7 @@ highscore = float("inf")
 
 while GameFunctions.play_again(answer):
     random_number = random.randint(1, 100)
-    print(random_number)
+    # print(random_number)
 
     while True:
         print("")

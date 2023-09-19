@@ -1,8 +1,9 @@
 players = {}
 max_height = 0
+PLAYER_NUM = 5
 tallest_player = ""
 
-for i in range(3):
+for i in range(PLAYER_NUM):
     player_name = input("What is your name: ")
     player_height = input("What is your height: ")
     players[player_name] = int(player_height)

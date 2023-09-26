@@ -10,8 +10,11 @@ while True :
         store_functions.add_item(name, price, quantity)
 
     elif user_input == "i" or user_input == "I":
-        name = input("what would you like? ")
-        store_functions.get_store_info(name)
+        print("What information would you like? ")
+        store_functions.get_sold_items_list()
+        store_functions.get_total_sale()
+        user_input = input("> ")
+
     elif user_input == "exit" or user_input == "Exit":
         break
     else :

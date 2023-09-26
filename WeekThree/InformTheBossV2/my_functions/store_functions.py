@@ -1,4 +1,5 @@
 store_inventory = {}
+total_sale = 0
 
 def get_options() :
     print("")
@@ -18,5 +19,11 @@ def add_item(name, price, quantity) :
     else :
         store_inventory[name] = item_details
 
-def get_store_info(name) :
-    print(store_inventory[name])
+def get_sold_items_list() :
+    for name in store_inventory :
+        print(store_inventory[name]["name"])
+
+def get_total_sale() :
+    for price in store_inventory :
+        total_sale += store_inventory[price]["price"]
+    print(total_sale)

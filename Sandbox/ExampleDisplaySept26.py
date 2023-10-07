@@ -1,32 +1,40 @@
+import time
+import sys
 from fhict_cb_01.custom_telemetrix import CustomTelemetrix
-import time, sys
 
-#-----------
+# -----------
 # Constants
-#-----------
-POTPIN = 0 # analog pin A0
+# -----------
+LED_PINS = [4, 5, 6, 7]
 
-#-----------
+# -----------
 # functions
-#-----------
+# -----------
+
+
 def setup():
     global board
     board = CustomTelemetrix()
-    board.set_pin_mode_analog_input(POTPIN)
-    time.sleep(0.1)
+    for pin in LED_PINS:
+        board.set_pin_mode_digital_output(pin)
+
 
 def loop():
-    value, timestamp = board.analog_read(POTPIN)
-    print(value)
+    for pin in LED_PINS:
+        board.digital_write(pin, 1)
+        time.sleep(0.1)
+        board.digital_write(pin, 0)
+        time.sleep(0.1)
 
-#--------------
+
+# --------------
 # main program
-#--------------
+# --------------
 setup()
 while True:
     try:
         loop()
-    except KeyboardInterrupt: # crtl+C
-        print ('shutdown')
+    except KeyboardInterrupt:  # crtl+C
+        print('shutdown')
         board.shutdown()
-        sys.exit(0) 
+        sys.exit(0)

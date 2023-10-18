@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="10">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            {% if samples_list == [] %}
+                <p>No entree's yet.</p>
+            {% else %}
+                <ul>
+                    {% for (time, day, light_level) in samples_list %}
+                    <li>{{ time }} | {{ day }} | {{ light_level }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </main>
+    
+    
+    
+</body>
+</html>

@@ -1,7 +1,5 @@
 
-from flask import Flask
-from flask import render_template
-from flask import request, redirect
+from flask import Flask, render_template, request, redirect
 
 
 app = Flask(__name__)
@@ -31,4 +29,4 @@ def hello_user():
                             name = currentName,
                             age = currentAge)
 
-app.run(port=80)
+app.run()

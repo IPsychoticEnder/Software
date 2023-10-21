@@ -1,16 +1,43 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style.css" />
     <title>Document</title>
-</head>
-<body>
-    <h1>{{ text[1] }}, {{ text[0] }}</h1>
-    <br>
-    <form action="/add_text" method="post">
-        <label>Text</label>
-        <input type="text" text="text">
-        <input type="submit">
-    </form>
-</body>
+  </head>
+  <body>
+    <header>
+
+    </header>
+
+    <main>
+      <h1>{{ text[1] }}, {{ text[0] }}</h1>
+      <div class="info-card">
+        <h3>Temperature:</h3>
+        {% for item in temperature %}
+        <div class="pill">
+					{{ item }}
+        </div> {% if loop.last %}{% else %}|{% endif %}
+        {% endfor %}
+
+        <h3>Humidity:</h3>
+        {% for item in humidity %}
+        <div class="pill">
+					{{ item }}
+        </div> {% if loop.last %}{% else %}|{% endif %}
+        {% endfor %}
+
+        <h3>Light level:</h3>
+        {% for item in light_level %}
+        <div class="pill">
+					{{ item }}
+        </div> {% if loop.last %}{% else %}|{% endif %}
+        {% endfor %}
+      </div>
+    </main>
+
+    <footer>
+      
+    </footer>
+  </body>
 </html>

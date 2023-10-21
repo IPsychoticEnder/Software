@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    background-color: #DDD8B8;
+    color: black;
+}
+
+main {
+    text-align: center;
+    margin: 40px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #84A9C0;
+}
+
+.info-card {
+    background-color: #B3CBB9;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.pill {
+    display: inline-block;
+    background-color: #DDD8B8;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 75px;
+    height: 20px;
+}

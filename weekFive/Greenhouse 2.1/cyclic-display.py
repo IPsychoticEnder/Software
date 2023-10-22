@@ -21,11 +21,11 @@ def setup():
 
 def getHumidity():
     humidity, temperature, timestamp = board.dht_read(DHT_PIN)
-    return temperature
+    return humidity
 
 def getTemperature():
     humidity, temperature, timestamp = board.dht_read(DHT_PIN)
-    return humidity
+    return temperature
 
 def getLightLevel():
     time.sleep(0.1)

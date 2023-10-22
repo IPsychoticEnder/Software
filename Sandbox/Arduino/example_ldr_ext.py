@@ -34,7 +34,7 @@ def setup():
 def loop():
     global value
     print(value)
-    # time.sleep(5)
+    time.sleep(1)
 
 
 # --------------

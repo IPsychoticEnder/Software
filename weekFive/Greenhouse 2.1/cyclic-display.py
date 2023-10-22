@@ -35,6 +35,7 @@ def getLightLevel():
 def LDRChanged(data):
     global light_level
     light_level = data[2]
+    # print(light_level)
 
 def buttonChanged(data):
     global options_index

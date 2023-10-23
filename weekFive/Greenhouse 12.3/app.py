@@ -8,13 +8,14 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     global samples
+    timeDay = (DateTime.getTime(), DateTime.getDate())
     temperature = HandleLists.makeList("one", Sensors.getTemperature())
     humidity = HandleLists.makeList("two", Sensors.getHumidity())
-    light_level = HandleLists.makeList("three", Sensors.getLightlevels())
+    light_level = HandleLists.makeList("three", Sensors.getLightlevel())
 
     samples = [temperature, humidity, light_level]
     return render_template('index.html',
-                           timeDay = (DateTime.getTime(), DateTime.getDate()),
+                           timeDay = timeDay,
                            temperature = temperature,
                            humidity = humidity,
                            light_level = light_level

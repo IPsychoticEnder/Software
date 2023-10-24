@@ -1,0 +1,40 @@
+h1{
+    text-align: center;
+    background-color: lightcoral;
+}
+
+body {
+    margin: 0;
+    background-color: #2bf706;
+    color: black;
+}
+
+main {
+    text-align: center;
+    margin: 100px;
+    padding: 50px;
+    border-radius: 5px;
+    background-color: #55b3ed;
+}
+
+h2 {
+    color: red;
+}
+
+.hehe {
+    background-color: #B3CBB9;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    color: red;
+}
+
+.hello {
+    display: inline-block;
+    background-color: #DDD8B8;
+    border: 5px solid black;
+    border-radius: 10px;
+    width: 75px;
+    height: 20px;
+    color: black;
+}

@@ -1,12 +1,37 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {{temperature}}
-    {{humidity}}
-    {{light}}
-</body>
-</html>
+<!DOCTYPE html>
+    <html lang="en">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="refresh" content="3">
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <head>
+            <title>Sensor Data</title>
+            <h1>Sensor Data</h1>
+        </head>
+        <body>
+            <main>
+                <div class = "hehe">
+                    <h2>Temperature:</h2>
+                    {% for item in temperature %}
+                    <div class="hello">  
+                        {{ item }} 
+                    </div> {% if loop.last %}{% else %}-{% endif %}
+                    {% endfor %}
+            
+                    <h2>Humidity:</h2>
+                    {% for item in humidity %}
+                    <div class="hello"> 
+                        {{ item }}  
+                    </div> {% if loop.last %}{% else %}-{% endif %}
+                    {% endfor %}
+            
+                    <h2>Light:</h2>
+                    {% for item in light %}
+                    <div class="hello">    
+                        {{ item }} 
+                    </div> {% if loop.last %}{% else %}-{% endif %}
+                    {% endfor %}
+                </div>
+            </main>
+        </body>
+    </html>

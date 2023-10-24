@@ -20,16 +20,20 @@ def index():
                            temperature = add_temperature, 
                            humidity = add_humidity, 
                            light = add_light)
-    
+
 @app.route("/post_data", methods=["POST"])
 def receive_data():
     global temperature, humidity, light
-    json_data = request.get_json
-    
+
+    json_data = request.get_json()
+
     temperature = json_data['post_temp']
     humidity = json_data['post_humid']
     light = json_data['post_light']
-    
-    return "OK", 200
-    
+
+    return "OK"
+
 app.run()
+
+
+

@@ -6,7 +6,7 @@ DHT_PIN = 12
 
 
 options_index = 0
-board = CustomTelemetrix(com_port="COM4", arduino_instance_id=1)
+board = CustomTelemetrix()
 board.set_pin_mode_dht(DHT_PIN, dht_type=11)
 board.set_pin_mode_analog_input(LDR_PIN)
 

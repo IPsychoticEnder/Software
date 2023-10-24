@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from functions import DateTime, HandleLists, Sensors
+from functions import DateTime, HandleLists
 
 samples = []
 temperature = 0
@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    global samples
+    # global samples
     global temperature
     global humidity
     global light_level
@@ -21,9 +21,9 @@ def index():
 
     return render_template('index.html',
                            timeDay = timeDay,
-                           temperature = HandleLists.makeList('temperature', Sensors.getTemperature()),
-                           humidity = HandleLists.makeList('humidity', Sensors.getHumidity()),
-                           light_level = HandleLists.makeList('light_level', Sensors.getLightLevel()),)
+                           temperature = HandleLists.makeList('temperature', temperature),
+                           humidity = HandleLists.makeList('humidity', humidity),
+                           light_level = HandleLists.makeList('light_level', light_level),)
 
 
 @app.route('/get-list', methods=['GET'])

@@ -4,7 +4,12 @@ my_dict = {}
 
 def makeList(key, value):
     if key in my_dict:
-        my_dict[key].append(value)
+        if len(my_dict[key]) > 3:
+            my_dict[key].insert(0, value)
+            my_dict[key].pop()
+        else:
+            my_dict[key].insert(0, value)             
+            
     else:
         my_dict[key] = [value]
 

@@ -15,27 +15,25 @@ def setup():
     board = CustomTelemetrix()
     board.displayOn()
     board.set_pin_mode_digital_input_pullup(BUTTON, callback=buttonChanged)
-    board.set_pin_mode_analog_input(LDR_PIN, callback=LDRChanged, differential=10)
+    board.set_pin_mode_analog_input(LDR_PIN)
     board.set_pin_mode_dht(DHT_PIN, dht_type=11)
 
 
 def getHumidity():
     humidity, temperature, timestamp = board.dht_read(DHT_PIN)
+    # print(humidity)
     return humidity
 
 def getTemperature():
     humidity, temperature, timestamp = board.dht_read(DHT_PIN)
+    # print(temperature)
     return temperature
 
 def getLightLevel():
-    time.sleep(0.1)
-    global light_level
-    return light_level
-    
-def LDRChanged(data):
-    global light_level
-    light_level = data[2]
-    # print(light_level)
+    light_level = board.analog_read(LDR_PIN)
+    # print(light_level[0])
+    return light_level[0]
+
 
 def buttonChanged(data):
     global options_index

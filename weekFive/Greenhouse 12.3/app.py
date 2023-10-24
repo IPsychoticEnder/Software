@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from functions import DateTime, Sensors, HandleLists
 
 samples = []
@@ -9,25 +9,34 @@ app = Flask(__name__)
 def index():
     global samples
     timeDay = (DateTime.getTime(), DateTime.getDate())
-    temperature = HandleLists.makeList("one", Sensors.getTemperature())
-    humidity = HandleLists.makeList("two", Sensors.getHumidity())
-    light_level = HandleLists.makeList("three", Sensors.getLightlevel())
 
-    samples = [temperature, humidity, light_level]
     return render_template('index.html',
                            timeDay = timeDay,
-                           temperature = temperature,
-                           humidity = humidity,
-                           light_level = light_level
-                           )
+                           temperature = HandleLists.makeList("temperature", Sensors.getTemperature()),
+                           humidity = HandleLists.makeList("humidity", Sensors.getHumidity()),
+                           light_level = HandleLists.makeList("light_level", Sensors.getLightLevel()))
+
 
 @app.route('/get-list', methods=['GET'])
-def getSamples():
+def getRemoteSamples():
 
     if len(samples) == 0:
         return {}
     
     send_samples = samples
     return {'sent_samples': send_samples}
+
+@app.route('/receive-sample', methods=['POST'])
+def setRemoteSamples():
+    data = request.get_json()
+
+    temperature = data['sent_temperature'] 
+    humidity = data['sent_humidity'] 
+    light_level = data['sent_light_level']
+
+    new_samples = (temperature, humidity, light_level)
+    samples.append(new_samples)
+
+    return "Ok"
 
 app.run()

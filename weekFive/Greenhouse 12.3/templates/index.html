@@ -13,6 +13,7 @@
 
     <main>
       <h1>{{ timeDay[1] }}, {{ timeDay[0] }}</h1>
+
       <div class="info-card">
         <h3>Temperature:</h3>
         {% for item in temperature %}
@@ -35,6 +36,7 @@
         </div> {% if loop.last %}{% else %}|{% endif %}
         {% endfor %}
       </div>
+      {{samples}}
     </main>
 
     <footer>

@@ -10,14 +10,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # global samples
     global temperature
     global humidity
     global light_level
     
     timeDay = (DateTime.getTime(), DateTime.getDate())
-
-    # samples = ["One", "Two", "Three"]
 
     return render_template('index.html',
                            timeDay = timeDay,
@@ -28,6 +25,7 @@ def index():
 
 @app.route('/get-list', methods=['GET'])
 def getRemoteSamples():
+    global samples
 
     if len(samples) == 0:
         return {}
@@ -37,6 +35,7 @@ def getRemoteSamples():
 
 @app.route('/receive-sample', methods=['POST'])
 def setRemoteSamples():
+    global samples
     global temperature
     global humidity
     global light_level
@@ -46,6 +45,9 @@ def setRemoteSamples():
     temperature = data['sent_temperature'] 
     humidity = data['sent_humidity']
     light_level = data['sent_light_level']
+
+    new_samples = [temperature, humidity, light_level]
+    samples.append(new_samples)
 
     return "Ok"
 

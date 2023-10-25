@@ -1,4 +1,3 @@
-import json
 import requests, csv
 
 def write_to_csv(humidity, temperature, light):

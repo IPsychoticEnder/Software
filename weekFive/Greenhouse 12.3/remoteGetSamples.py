@@ -2,15 +2,9 @@ import json
 import requests, csv
 
 def write_to_csv(humidity, temperature, light):
-    with open('adurino_data.csv', 'a', newline='') as csvfile:
+    with open('data/adurino_data.csv', 'a', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow([f"\n Humidity: {humidity} \n Temperature: {temperature} \n light level: {light} \n"])
-        # json_dict = { 
-        #     "Temperature": temperature, 
-        #     "Humidity": humidity, 
-        #     "Light level": light
-        # }
-        # print(json.dumps(json_dict, indent=4))
 
 def getSamples():
 

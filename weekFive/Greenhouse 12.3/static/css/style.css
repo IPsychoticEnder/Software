@@ -1,29 +1,43 @@
 body {
     margin: 0;
-    background-color: #DDD8B8;
-    color: black;
-}
-
-main {
+    background-color: #2F4858;
     text-align: center;
-    margin: 40px;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #84A9C0;
+    color: white;
 }
 
-.info-card {
-    background-color: #B3CBB9;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.pill {
-    display: inline-block;
-    background-color: #DDD8B8;
-    border: 1px solid black;
+header {
+    background-color: #AF7595;
     border-radius: 10px;
-    width: 75px;
-    height: 20px;
+    margin: 50 40%;
+    height: 50px;
+}
+
+.current-sample {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-info {
+    background-color: #9590A8;
+    width: 300px;
+    min-height: 200px;
+    border-radius: 10px
+}
+
+.average-samples {
+    background-color: #9590A8;
+    min-height: 300px;
+}
+
+.average-samples table {
+    width: 100%;
+    text-align: center;
+}
+
+.table-start {
+    text-align: left;
+}
+
+.average-samples th {
+    background-color: #2F4858;
 }

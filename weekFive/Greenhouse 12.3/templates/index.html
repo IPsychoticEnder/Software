@@ -8,39 +8,58 @@
   </head>
   <body>
     <header>
-
+      <h1>{{ timeDay[1] }}, {{ timeDay[0] }}</h1>
     </header>
 
     <main>
-      <h1>{{ timeDay[1] }}, {{ timeDay[0] }}</h1>
-
-      <div class="info-card">
-        <h3>Temperature:</h3>
-        {% for item in temperature %}
-        <div class="pill">
-					{{ item }}
-        </div> {% if loop.last %}{% else %}|{% endif %}
-        {% endfor %}
-
-        <h3>Humidity:</h3>
-        {% for item in humidity %}
-        <div class="pill">
-					{{ item }}
-        </div> {% if loop.last %}{% else %}|{% endif %}
-        {% endfor %}
-
-        <h3>Light level:</h3>
-        {% for item in light_level %}
-        <div class="pill">
-					{{ item }}
-        </div> {% if loop.last %}{% else %}|{% endif %}
-        {% endfor %}
+      <div class="current-sample">
+        <div class="card-info">
+          <h3>Temperature</h3>
+          {{ temperature }}
+        </div>
+        <div class="card-info">
+          <h3>Humidity</h3>
+          {{ humidity }}
+        </div>
+        <div class="card-info">
+          <h3>Light level</h3>
+          {{ light_level }}
+        </div>
       </div>
-      {{samples}}
+
+      <div class="average-samples">
+        <h3>Average sample Data</h3>
+        <table>
+          <tr>
+            <th></th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>Light level</th>
+          </tr>
+          <tr>
+            <td class="table-start">Average</td>
+            <td>{{ average_temperature }}</td>
+            <td>{{ average_humidity }}</td>
+            <td>{{ average_light_level }}</td>
+          </tr>
+          <tr>
+            <td class="table-start">Maximum</td>
+            <td>{{ max_temperature }}</td>
+            <td>{{ max_humidity }}</td>
+            <td>{{ max_light_level }}</td>
+          </tr>
+          <tr>
+            <td class="table-start">Minimum</td>
+            <td>{{ min_temperature }}</td>
+            <td>{{ min_humidity }}</td>
+            <td>{{ min_light_level }}</td>
+          </tr>
+        </table>
+      </div>
     </main>
 
     <footer>
-      
+
     </footer>
   </body>
 </html>

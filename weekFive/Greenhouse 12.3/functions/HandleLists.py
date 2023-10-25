@@ -1,30 +1,42 @@
-import random
+
 
 my_dict = {}
 
 def makeList(key, value):
     if key in my_dict:
-        if len(my_dict[key]) == 5:
-            my_dict[key].insert(0, value)
-            my_dict[key].pop()
-        else:
-            my_dict[key].insert(0, value)             
-            
+        my_dict[key].insert(0, value)             
     else:
         my_dict[key] = [value]
 
     return my_dict.get(key, [])
 
-# makeList("one", random.randint(1, 10))
-# makeList("one", random.randint(1, 10))
-# one = makeList("one", random.randint(1, 10))
-# makeList("two", random.randint(11, 20))
-# makeList("two", random.randint(11, 20))
-# two = makeList("two", random.randint(11, 20))
-# makeList("three", random.randint(21, 31))
-# makeList("three", random.randint(21, 31))
-# three = makeList("three", random.randint(21, 31))
+def get_averaqge(list, decimal = None):
+    sum = 0
+    if list == []:
+        return 0
+    else:
+        for item in list:
+            sum = sum + item
+    return round((sum / len(list)), decimal)
 
-# print(one)
-# print(two)
-# print(three)
+def get_maximum(list):
+    max_num = 0
+
+    if list == []:
+        return 0
+    else:
+        for item in list:
+            if item > max_num:
+                max_num = item
+    return max_num
+
+def get_minimum(list):
+    min_num = float('inf')
+
+    if list == []:
+        return 0
+    else:
+        for item in list:
+            if min_num > item:
+                min_num = item
+    return min_num

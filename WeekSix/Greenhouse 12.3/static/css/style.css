@@ -29,6 +29,14 @@ header {
     min-height: 300px;
 }
 
+.table-head {
+    background-color: #2F4858;
+}
+
+td {
+    background-color: #374a57 ;
+}
+
 .average-samples table {
     width: 100%;
     text-align: center;
@@ -36,8 +44,4 @@ header {
 
 .table-start {
     text-align: left;
-}
-
-.average-samples th {
-    background-color: #2F4858;
 }

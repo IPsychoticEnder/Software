@@ -38,8 +38,7 @@ def getRemoteSamples():
     if len(samples) == 0:
         return {}
     
-    send_samples = samples
-    return {'sent_samples': send_samples}
+    return {'sent_samples': samples}
 
 @app.route('/receive-sample', methods=['POST'])
 def setRemoteSamples():
